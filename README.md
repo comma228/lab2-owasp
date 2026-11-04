@@ -23,7 +23,7 @@ python app.py
 SQLite-базу `mininotes.db` и тестовых пользователей:
 
 `admin` / `S3cr3tAdminPass!`
-`alice` / `alice123`
+ `alice` / `alice123`
 
 **Уязвимость 1 (SQL Injection).** В `/login` SQL-запрос собирается
 конкатенацией строк из полей формы без параметризации:
