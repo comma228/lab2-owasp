@@ -8,19 +8,6 @@
 | 1 | SQL Injection | A03:2021 – Injection | `app.py`, маршрут `/login` |
 | 2 | Stored XSS | A03:2021 – Injection (Cross-Site Scripting) | `app.py`, маршрут `/notes` |
 
-## Состав репозитория
-
-```
-lab2/
-├── app.py            # Часть 1: уязвимое приложение
-├── app_patched.py     # Часть 3: пропатченная версия (для справки/проверки)
-├── patch.diff          # Часть 3: патч в формате unified diff
-├── exploit_sqli.py     # Часть 2: эксплойт SQL Injection
-├── exploit_xss.py       # Часть 2: эксплойт Stored XSS
-├── requirements.txt
-└── README.md
-```
-
 ## Часть 1 — Уязвимое приложение
 
 Установка и запуск:
