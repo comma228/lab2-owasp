@@ -22,7 +22,7 @@ python app.py
 Приложение поднимется на `http://127.0.0.1:5000`, автоматически создаст
 SQLite-базу `mininotes.db` и тестовых пользователей:
 
-`admin` / `S3cr3tAdminPass!`
+`admin` / `S3cr3tAdminPass!` и 
  `alice` / `alice123`
 
 **Уязвимость 1 (SQL Injection).** В `/login` SQL-запрос собирается
