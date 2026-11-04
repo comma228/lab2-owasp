@@ -1,0 +1,40 @@
+--- app.py	2026-11-03 12:29:37.864797492 +0000
++++ app_patched.py	2026-11-03 12:30:17.126630823 +0000
+@@ -1,17 +1,11 @@
+
+ from flask import Flask, request, render_template_string, g, redirect, session
+@@ -78,7 +72,7 @@
+ </form>
+ <ul>
+ {% for n in notes %}
+-  <li><b>{{ n[0] }}:</b> {{ n[1]|safe }}</li>
++  <li><b>{{ n[0] }}:</b> {{ n[1] }}</li>
+ {% endfor %}
+ </ul>
+ <a href="/logout">Выйти</a>
+@@ -97,19 +91,13 @@
+         username = request.form.get("username", "")
+         password = request.form.get("password", "")
+ 
+-        query = (
+-            "SELECT username FROM users WHERE username='"
+-            + username
+-            + "' AND password='"
+-            + password
+-            + "'"
+-        )
+
++        query = "SELECT username FROM users WHERE username=? AND password=?"
+         db = get_db()
+-        cur = db.execute(query)
++        cur = db.execute(query, (username, password))
+         row = cur.fetchone()
+ 
+         if row:
+@@ -134,11 +122,10 @@
+         )
+         db.commit()
+ 
+     rows = db.execute("SELECT author, text FROM notes").fetchall()
+     return render_template_string(NOTES_PAGE, user=session["user"], notes=rows)
+ 
